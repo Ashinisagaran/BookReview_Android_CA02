@@ -108,6 +108,10 @@ class BookReviewActivity : AppCompatActivity() {
             showImagePicker(imageIntentLauncher)
         }
 
+        binding.bookReviewLocation.setOnClickListener {
+            i ("Set Location Pressed")
+        }
+
         registerImagePickerCallback()
     }
 

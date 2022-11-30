@@ -155,11 +155,43 @@
                     android:textColor="@color/colorPrimary"
                     android:textSize="16sp" />
 
+                <Button
+                    android:id="@+id/bookReviewLocation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:background="@color/colorAccent"
+                    android:paddingBottom="8dp"
+                    android:paddingTop="8dp"
+                    android:stateListAnimator="@null"
+                    android:text="@string/button_location"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="16sp"/>
+
                 <ImageView
                     android:id="@+id/bookImage"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@mipmap/ic_launcher" />
+                    app:srcCompat="@drawable/logo" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical">
+                        <TextView
+                            android:id="@+id/bookReviewClub"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_centerHorizontal="true"
+                            android:autofillHints="hint"
+                            android:text="@string/club_name"
+                            android:maxLength="25"
+                            android:maxLines="1"
+                            android:padding="8dp"
+                            android:textColor="@color/dark_brown"
+                            android:textSize="14sp" />
+                </RelativeLayout>
 
             </LinearLayout>
         </ScrollView>

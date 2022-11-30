@@ -17,14 +17,8 @@ class BookReviewMemStore : BookReviewStore {
         return bookReviews
     }
 
-//    override fun create(bookReview: BookReviewModel) {
-//        bookReview.id = getId()
-//        bookReviews.add(bookReview)
-//        logAll()
-//    }
 
     override fun update(bookReview: BookReviewModel) {
-//        var foundBookReview = findOneByName(bookReview.bookTitle!!)
         var foundBookReview: BookReviewModel? = bookReviews.find { p -> p.id == bookReview.id }
         if (foundBookReview != null) {
             foundBookReview.bookTitle = bookReview.bookTitle
@@ -88,17 +82,6 @@ class BookReviewMemStore : BookReviewStore {
     private fun generateRandomId() : Long{
         return Random.nextLong(0, Long.MAX_VALUE)
     }
-
-//    override fun update(bookReview: BookReviewModel) {
-//        var foundBookReview = findOneByName(bookReview.bookTitle!!)
-//        if (foundBookReview != null) {
-//            foundBookReview.bookTitle = bookReview.bookTitle
-//            foundBookReview.genre = bookReview.genre
-//            foundBookReview.rating = bookReview.rating
-//            foundBookReview.review = bookReview.review
-//        }
-//
-//    }
 
     override fun rate(bookReview: BookReviewModel) {
         var foundBookReview = findOneByName(bookReview.bookTitle!!)
