@@ -13,4 +13,24 @@
     <string name="button_addImage"> Add Image </string>
     <string name="select_book_image">Select the book image</string>
     <string name="change_book_image">Change book image</string>
+    <string-array name="select_genre">
+        <item>Adventure</item>
+        <item>Children</item>
+        <item>Crime</item>
+        <item>Drama</item>
+        <item>Fantasy</item>
+        <item>Fiction</item>
+        <item>Flowers</item>
+        <item>Mystery</item>
+        <item>Non-Fiction</item>
+        <item>Romance</item>
+        <item>Sci-Fi</item>
+    </string-array>
+    <string-array name="select_stage_of_reading">
+        <item>Want to Read</item>
+        <item>Currently Reading</item>
+        <item>Read</item>
+        <item>Haven\'t Considered</item>
+        <item>Nope</item>
+    </string-array>
 </resources>

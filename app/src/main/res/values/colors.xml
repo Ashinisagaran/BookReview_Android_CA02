@@ -10,5 +10,6 @@
     <color name="pink_red">#461319</color>
     <color name="colorPrimary">#cc8c8d</color>
     <color name="colorPrimaryDark">#000000</color>
+    <color name="grey">#808080</color>
     <color name="colorAccent">#8a0f2b</color>
 </resources>

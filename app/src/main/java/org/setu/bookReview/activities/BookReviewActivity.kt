@@ -7,6 +7,8 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
 import android.widget.RatingBar
 import android.widget.RatingBar.OnRatingBarChangeListener
 import android.widget.TextView
@@ -47,17 +49,27 @@ class BookReviewActivity : AppCompatActivity() {
         i("Book Review Activity started...")
 
         ratingBar = binding.ratingBar;
-       // tv = findViewById(R.id.tv);
+
+        // get reference to the string array that we just created
+        val genres = resources.getStringArray(R.array.select_genre)
+        val stageOfReadings = resources.getStringArray(R.array.select_stage_of_reading)
+        // create an array adapter and pass the required parameter
+        // in our case pass the context, drop down layout , and array.
+        val arrayAdapter = ArrayAdapter(this, R.layout.dropdown_menu, genres)
+        val arrayAdapter2 = ArrayAdapter(this, R.layout.dropdown_menu, stageOfReadings)
+        // get reference to the autocomplete text view
+        val autocompleteTV = findViewById<AutoCompleteTextView>(R.id.autoCompleteTextView)
+        val autocompleteTV2 = findViewById<AutoCompleteTextView>(R.id.autoCompleteTextView2)
+        // set adapter to the autocomplete tv to the arrayAdapter
+        autocompleteTV.setAdapter(arrayAdapter)
+        autocompleteTV2.setAdapter(arrayAdapter2)
 
         if (intent.hasExtra("bookReview_edit")) {
             edit = true
             bookReview = intent.extras?.getParcelable("bookReview_edit")!!
             binding.bookTitle.setText(bookReview.bookTitle)
             binding.review.setText(bookReview.review)
-           // binding.ratingBar.setText(bookReview.rating)
             binding.ratingBar.rating=bookReview.rating
-            binding.genre.setText(bookReview.genre)
-            binding.stageOfReading.setText(bookReview.stageOfReading)
             binding.btnAdd.setText(R.string.button_saveBook)
             Picasso.get()
                 .load(bookReview.image)
@@ -72,8 +84,6 @@ class BookReviewActivity : AppCompatActivity() {
             bookReview.bookTitle = binding.bookTitle.text.toString()
             bookReview.review = binding.review.text.toString()
             bookReview.rating = binding.ratingBar.rating
-            bookReview.genre = binding.genre.text.toString()
-            bookReview.stageOfReading = binding.stageOfReading.text.toString()
             if (bookReview.bookTitle.isEmpty()) {
                 Snackbar.make(it,R.string.enter_title_message, Snackbar.LENGTH_LONG)
                     .show()
@@ -93,8 +103,6 @@ class BookReviewActivity : AppCompatActivity() {
             OnRatingBarChangeListener { ratingBar, rating, fromUser ->
                 Log.d("rating", ratingBar.rating.toString() + "")
             }
-
-
 
         binding.chooseImage.setOnClickListener {
             showImagePicker(imageIntentLauncher)
