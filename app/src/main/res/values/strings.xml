@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Book Review Club</string>
+    <string name="button_addBook">Add Book</string>
+    <string name="button_saveBook">Save Book</string>
+    <string name="hint_bookTitle">Book Title</string>
+    <string name="hint_review">Review</string>
+    <string name="hint_genre">Genre</string>
+    <string name="rating">Rating</string>
+    <string name="hint_stageOfReading">Stage Of Reading</string>
+    <string name="menu_addBook">Add</string>
+    <string name="menu_cancelBook">Cancel</string>
+    <string name="enter_title_message">Please Enter a Book Title</string>
+    <string name="button_addImage"> Add Image </string>
+    <string name="select_book_image">Select the book image</string>
+    <string name="change_book_image">Change book image</string>
+</resources>
