@@ -35,7 +35,7 @@ class BookReviewActivity : AppCompatActivity() {
     private var ratingBar: RatingBar? = null
     private var genre: TextView? = null
     private var stageOfReading: TextView? = null
-    private var bookSave: ImageButton = findViewById(R.id.button_saveBook)
+//    private var bookSave: ImageButton = findViewById(R.id.button_saveBook)
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -69,7 +69,7 @@ class BookReviewActivity : AppCompatActivity() {
         ratingBar = binding.ratingBar
         genre = binding.autoCompleteTextView
         stageOfReading = binding.autoCompleteTextView2
-        bookSave = binding.bookSave
+//        bookSave = binding.bookSave
 
         if (intent.hasExtra("bookReview_edit")) {
             edit = true
@@ -79,13 +79,13 @@ class BookReviewActivity : AppCompatActivity() {
             binding.ratingBar.rating=bookReview.rating
             binding.autoCompleteTextView.setText(bookReview.genre)
             binding.autoCompleteTextView2.setText(bookReview.stageOfReading)
-            binding.bookSave.setImageIcon(R.id.button_saveBook)
+          //  binding.bookSave.setImageIcon(R.id.button_saveBook)
             Picasso.get()
                 .load(bookReview.image)
                 .into(binding.bookImage)
-            if (bookReview.image != Uri.EMPTY) {
-                binding.imageAdd.setText(R.string.change_book_image)
-            }
+//            if (bookReview.image != Uri.EMPTY) {
+//                binding.imageAdd.setText(R.string.change_book_image)
+//            }
 
         }
 
@@ -152,7 +152,7 @@ class BookReviewActivity : AppCompatActivity() {
                             Picasso.get()
                                 .load(bookReview.image)
                                 .into(binding.bookImage)
-                            binding.imageAdd.setImageIcon(R.string.change_book_image)
+//                            binding.imageAdd.setImageIcon(R.string.change_book_image)
                         } // end of if
                     }
                     RESULT_CANCELED -> { } else -> { }
