@@ -9,11 +9,18 @@
     <string name="hint_stageOfReading">Stage Of Reading</string>
     <string name="menu_addBook">Add</string>
     <string name="menu_cancelBook">Cancel</string>
+    <string name="save_book">Save</string>
     <string name="enter_title_message">Please Enter a Book Title</string>
+    <string name="enter_review_message">Please leave a review!</string>
+    <string name="enter_rating_message">Please leave a rating!</string>
+    <string name="enter_genre_message">Select a genre for the book!</string>
+    <string name="enter_stage_of_reading_message">Select your stage of reading for the book!</string>
     <string name="button_addImage"> Add Image </string>
     <string name="select_book_image">Select the book image</string>
     <string name="change_book_image">Change book image</string>
     <string name="club_name">Book Review Club</string>
+    <string name="genre">Genres</string>
+    <string name="stageOfReading">Stage Of Reading</string>
     <string-array name="select_genre">
         <item>Adventure</item>
         <item>Children</item>
@@ -35,5 +42,6 @@
         <item>Nope</item>
     </string-array>
     <string name="button_location">Set Location</string>
+    <string name="title_activity_map">MapActivity</string>
 
 </resources>

@@ -14,10 +14,5 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="CustomRatingBarStyle" parent="Widget.AppCompat.RatingBar">
-        <item name="android:progressDrawable">@drawable/ratingbar_selector</item>
-        <item name="android:minHeight">25dip</item>
-        <item name="android:maxHeight">67dip</item>
-    </style>
 
 </resources>

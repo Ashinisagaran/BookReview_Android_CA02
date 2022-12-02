@@ -48,7 +48,7 @@
                     android:autofillHints="hint"
                     android:hint="@string/hint_bookTitle"
                     android:inputType="text"
-                    android:maxLength="25"
+                    android:maxLength="125"
                     android:maxLines="1"
                     android:padding="8dp"
                     android:textColor="@color/colorPrimaryDark"
@@ -61,7 +61,7 @@
                     android:layout_margin="8dp"
                     android:hint="@string/hint_review"
                     android:inputType="text"
-                    android:maxLength="25"
+                    android:maxLength="125"
                     android:maxLines="1"
                     android:padding="8dp"
                     android:textColor="@color/colorPrimaryDark"
@@ -100,7 +100,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:inputType="none"
-                        android:text="Select Genre"
+                        android:text="@string/genre"
                         android:textColor="@color/grey"
                         />
 
@@ -124,74 +124,84 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:inputType="none"
-                        android:text="Stage Of Reading"
+                        android:text="@string/stageOfReading"
                         android:textColor="@color/grey"
                         />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <Button
-                    android:id="@+id/btnAdd"
-                    android:layout_width="match_parent"
+            <LinearLayout
+                android:id="@+id/LinearLayout02"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_alignParentBottom="true"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <ImageButton
+                    android:id="@+id/bookSave"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
-                    android:background="@color/colorAccent"
-                    android:paddingTop="8dp"
-                    android:paddingBottom="8dp"
+                    android:layout_margin="10dp"
+                    android:src="@drawable/book_save"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
                     android:stateListAnimator="@null"
-                    android:text="@string/button_addBook"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="16sp" />
+                    android:contentDescription="@string/button_saveBook"
+                    style="?android:attr/borderlessButtonStyle"/>
 
-                <Button
-                    android:id="@+id/chooseImage"
-                    android:layout_width="match_parent"
+
+                <ImageButton
+                    android:id="@+id/imageAdd"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
-                    android:background="@color/colorAccent"
-                    android:paddingTop="8dp"
-                    android:paddingBottom="8dp"
-                    android:text="@string/button_addImage"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="16sp" />
+                    android:layout_margin="10dp"
+                    android:contentDescription="@string/button_addImage"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:src="@drawable/save_image"
+                    android:stateListAnimator="@null"
+                    style="?android:attr/borderlessButtonStyle"/>
 
-                <Button
+                <ImageButton
                     android:id="@+id/bookReviewLocation"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
-                    android:background="@color/colorAccent"
-                    android:paddingBottom="8dp"
-                    android:paddingTop="8dp"
+                    android:layout_margin="10dp"
+                    android:src="@drawable/location_icon"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
                     android:stateListAnimator="@null"
-                    android:text="@string/button_location"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="16sp"/>
+                    android:contentDescription="@string/button_location"
+                    style="?android:attr/borderlessButtonStyle"/>
 
-                <ImageView
-                    android:id="@+id/bookImage"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/logo" />
+            </LinearLayout>
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:gravity="center_vertical">
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true" >
+
+                        <ImageView
+                            android:id="@+id/bookImage"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            app:srcCompat="@drawable/logo" />
+
                         <TextView
                             android:id="@+id/bookReviewClub"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
                             android:layout_centerHorizontal="true"
-                            android:autofillHints="hint"
+                            android:gravity="center_horizontal"
+                            android:layout_below="@id/bookImage"
                             android:text="@string/club_name"
-                            android:maxLength="25"
-                            android:maxLines="1"
-                            android:padding="8dp"
-                            android:textColor="@color/dark_brown"
-                            android:textSize="14sp" />
+                            android:textColor="@color/dark_brown"/>
                 </RelativeLayout>
+
+
 
             </LinearLayout>
         </ScrollView>

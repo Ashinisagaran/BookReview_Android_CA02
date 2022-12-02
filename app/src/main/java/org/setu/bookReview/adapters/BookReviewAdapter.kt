@@ -36,9 +36,9 @@ class BookReviewAdapter constructor(private var bookReviews: List<BookReviewMode
         fun bind(bookReview: BookReviewModel, listener: BookReviewListener) {
             binding.bookTitle.text = bookReview.bookTitle
             binding.review.text = bookReview.review
-            binding.rating.text = bookReview.rating.toString()
-            binding.genre.text = bookReview.genre
-            binding.stageOfReading.text = bookReview.stageOfReading
+            binding.ratingBar.rating=bookReview.rating
+//            binding.genre.text = bookReview.genre
+//            binding.stageOfReading.text = bookReview.stageOfReading
             Picasso.get().load(bookReview.image).resize(200,200).into(binding.imageIcon)
             binding.root.setOnClickListener { listener.onBookReviewClick(bookReview) }
         }
