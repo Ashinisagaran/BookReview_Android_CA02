@@ -6,12 +6,12 @@ import timber.log.Timber
 
 class MainApp : Application() {
 
-    //    val bookReviews = ArrayList<BookReviewModel>()
-    val bookReviews = BookReviewMemStore()
+    var bookReviews = BookReviewMemStore()
 
     override fun onCreate() {
         super.onCreate()
         Timber.plant(Timber.DebugTree())
+        bookReviews = BookReviewMemStore()
         Timber.i("Placemark started")
     }
 }

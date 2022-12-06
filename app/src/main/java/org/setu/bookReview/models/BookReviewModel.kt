@@ -11,4 +11,12 @@ data class BookReviewModel(var id: Long = 0,
                            var rating: Float = 0F,
                            var genre: String = "",
                            var stageOfReading: String = "",
-                           var image: Uri = Uri.EMPTY) : Parcelable
+                           var image: Uri = Uri.EMPTY,
+                           var lat: Double = 0.0,
+                           var lng: Double = 0.0,
+                           var zoom: Float = 0f) : Parcelable
+
+@Parcelize
+data class Location(var lat: Double = 0.0,
+                    var lng: Double = 0.0,
+                    var zoom: Float = 0f) : Parcelable

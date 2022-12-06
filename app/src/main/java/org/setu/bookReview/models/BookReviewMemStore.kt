@@ -26,6 +26,10 @@ class BookReviewMemStore : BookReviewStore {
             foundBookReview.rating = bookReview.rating
             foundBookReview.genre = bookReview.genre
             foundBookReview.stageOfReading = bookReview.stageOfReading
+            foundBookReview.image = bookReview.image
+            foundBookReview.lat = bookReview.lat
+            foundBookReview.lng = bookReview.lng
+            foundBookReview.zoom = bookReview.zoom
             logAll()
         }
     }

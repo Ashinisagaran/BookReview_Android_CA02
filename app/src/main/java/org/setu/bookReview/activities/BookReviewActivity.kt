@@ -2,14 +2,12 @@ package org.setu.bookReview.activities
 
 
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
-import android.widget.ImageButton
 import android.widget.RatingBar
 import android.widget.RatingBar.OnRatingBarChangeListener
 import android.widget.TextView
@@ -23,11 +21,13 @@ import org.setu.bookReview.databinding.ActivityBookReviewBinding
 import org.setu.bookReview.helpers.showImagePicker
 import org.setu.bookReview.main.MainApp
 import org.setu.bookReview.models.BookReviewModel
+import org.setu.bookReview.models.Location
 import timber.log.Timber.i
 
 
 class BookReviewActivity : AppCompatActivity() {
     private lateinit var binding: ActivityBookReviewBinding
+    private lateinit var mapIntentLauncher : ActivityResultLauncher<Intent>
     var bookReview = BookReviewModel()
     lateinit var app: MainApp
     var editFlag = false
@@ -35,7 +35,7 @@ class BookReviewActivity : AppCompatActivity() {
     private var ratingBar: RatingBar? = null
     private var genre: TextView? = null
     private var stageOfReading: TextView? = null
-//    private var bookSave: ImageButton = findViewById(R.id.button_saveBook)
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -60,15 +60,15 @@ class BookReviewActivity : AppCompatActivity() {
         val arrayAdapter = ArrayAdapter(this, R.layout.dropdown_menu, genres)
         val arrayAdapter2 = ArrayAdapter(this, R.layout.dropdown_menu, stageOfReadings)
         // get reference to the autocomplete text view
-        val autocompleteTV = findViewById<AutoCompleteTextView>(R.id.autoCompleteTextView)
-        val autocompleteTV2 = findViewById<AutoCompleteTextView>(R.id.autoCompleteTextView2)
+        val autocompleteTV = findViewById<AutoCompleteTextView>(R.id.genre)
+        val autocompleteTV2 = findViewById<AutoCompleteTextView>(R.id.stageOfReading)
         // set adapter to the autocomplete tv to the arrayAdapter
         autocompleteTV.setAdapter(arrayAdapter)
         autocompleteTV2.setAdapter(arrayAdapter2)
 
         ratingBar = binding.ratingBar
-        genre = binding.autoCompleteTextView
-        stageOfReading = binding.autoCompleteTextView2
+        genre = binding.genre
+        stageOfReading = binding.stageOfReading
 //        bookSave = binding.bookSave
 
         if (intent.hasExtra("bookReview_edit")) {
@@ -77,24 +77,21 @@ class BookReviewActivity : AppCompatActivity() {
             binding.bookTitle.setText(bookReview.bookTitle)
             binding.review.setText(bookReview.review)
             binding.ratingBar.rating=bookReview.rating
-            binding.autoCompleteTextView.setText(bookReview.genre)
-            binding.autoCompleteTextView2.setText(bookReview.stageOfReading)
-          //  binding.bookSave.setImageIcon(R.id.button_saveBook)
+            binding.genre.setText(bookReview.genre, false)
+            binding.genre.setSelection(binding.genre.text.count()) // kotlin
+            binding.stageOfReading.setText(bookReview.stageOfReading, false)
+            binding.stageOfReading.setSelection(binding.stageOfReading.text.count())
             Picasso.get()
                 .load(bookReview.image)
                 .into(binding.bookImage)
-//            if (bookReview.image != Uri.EMPTY) {
-//                binding.imageAdd.setText(R.string.change_book_image)
-//            }
-
         }
 
         binding.bookSave.setOnClickListener() {
             bookReview.bookTitle = binding.bookTitle.text.toString()
             bookReview.review = binding.review.text.toString()
             bookReview.rating = binding.ratingBar.rating
-            bookReview.genre = binding.autoCompleteTextView.toString()
-            bookReview.stageOfReading = binding.autoCompleteTextView2.toString()
+            bookReview.genre = binding.genre.text.toString()
+            bookReview.stageOfReading = binding.stageOfReading.text.toString()
             if (bookReview.bookTitle.isEmpty()) {
                 Snackbar.make(it,R.string.enter_title_message, Snackbar.LENGTH_LONG)
                     .show()
@@ -120,10 +117,41 @@ class BookReviewActivity : AppCompatActivity() {
         }
 
         binding.bookReviewLocation.setOnClickListener {
-            i ("Set Location Pressed")
+            val location = Location(52.245696, -7.139102, 15f)
+            if (bookReview.zoom != 0f) {
+                location.lat =  bookReview.lat
+                location.lng = bookReview.lng
+                location.zoom = bookReview.zoom
+            }
+            val launcherIntent = Intent(this, MapActivity::class.java)
+            .putExtra("location", location)
+            mapIntentLauncher.launch(launcherIntent)
         }
 
         registerImagePickerCallback()
+
+        registerMapCallback()
+
+    }
+
+    private fun registerMapCallback() {
+        mapIntentLauncher =
+            registerForActivityResult(ActivityResultContracts.StartActivityForResult())
+            { result ->
+                when (result.resultCode) {
+                    RESULT_OK -> {
+                        if (result.data != null) {
+                            i("Got Location ${result.data.toString()}")
+                            val location = result.data!!.extras?.getParcelable<Location>("location")!!
+                            i("Location == $location")
+                            bookReview.lat = location.lat
+                            bookReview.lng = location.lng
+                            bookReview.zoom = location.zoom
+                        } // end of if
+                    }
+                    RESULT_CANCELED -> { } else -> { }
+                }
+            }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
