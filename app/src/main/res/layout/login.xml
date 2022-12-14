@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="org.setu.bookReview.activities.BookReviewActivity"
+    android:background="@color/old_book_page">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorAccent"
+            android:fitsSystemWindows="true"
+            app:elevation="0dip"
+            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/appBarLayout"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/circle_logo"
+                    android:layout_width="139dp"
+                    android:layout_height="127dp"
+                    android:layout_marginStart="130dp"
+                    android:layout_marginTop="5dp"
+                    android:src="@drawable/brown_circle_logo" />
+
+                <ImageView
+                    android:id="@+id/test"
+                    android:layout_width="128dp"
+                    android:layout_height="116dp"
+                    android:layout_marginStart="140dp"
+                    android:layout_marginTop="-130dp"
+                    android:src="@drawable/book_circle_logo" />
+
+                <TextView
+                    android:id="@+id/bookReviewClub"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="150dp"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center_horizontal"
+                    android:text="@string/club_name"
+                    android:textColor="@color/dark_brown" />
+
+                <EditText
+                    android:id="@+id/enter_your_email"
+                    android:layout_width="359dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
+                    android:padding="15dp"
+                    android:text="@string/enter_your_email_string"
+                    android:textColor="@color/medium_grey"
+                    android:textSize="20sp"/>
+
+                <EditText
+                    android:id="@+id/password"
+                    android:layout_width="299dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
+                    android:padding="15dp"
+                    android:text="@string/password_string"
+                    android:textColor="@color/medium_grey"
+                    android:textSize="20sp" />
+
+                <ImageView
+                    android:id="@+id/password_open"
+                    android:layout_width="22dp"
+                    android:layout_height="15dp"
+                    android:layout_marginStart="1dp"
+                    android:layout_marginTop="4.5dp"
+                    android:contentDescription="@string/password_string"
+                    android:src="@drawable/password_open" />
+
+                <Button
+                    android:id="@+id/log_in"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="32dp"
+                    android:backgroundTint="@color/dark_brown"
+                    android:text="@string/log_in_string"
+                    android:textColor="@color/medium_grey"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/not_a_member__sign_up"
+                    android:layout_width="340dp"
+                    android:layout_height="25.5dp"
+                    android:layout_marginLeft="140dp"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="@string/not_a_mem_text"
+                    android:textColor="@color/dark_brown"
+                    android:textSize="13sp" />
+
+
+            </LinearLayout>
+        </ScrollView>
+
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

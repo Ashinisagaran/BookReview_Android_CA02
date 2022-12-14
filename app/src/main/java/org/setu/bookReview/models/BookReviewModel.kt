@@ -7,6 +7,7 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class BookReviewModel(var id: Long = 0,
                            var bookTitle: String = "",
+                           var author: String = "",
                            var review: String = "",
                            var rating: Float = 0F,
                            var genre: String = "",

@@ -55,6 +55,20 @@
                     android:textSize="14sp" />
 
                 <EditText
+                    android:id="@+id/author"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_margin="8dp"
+                    android:autofillHints="hint"
+                    android:hint="@string/hint_author"
+                    android:inputType="text"
+                    android:maxLength="100"
+                    android:maxLines="1"
+                    android:padding="5dp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="14sp" />
+
+                <EditText
                     android:id="@+id/review"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

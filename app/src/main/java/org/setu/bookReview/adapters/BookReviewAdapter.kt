@@ -35,6 +35,7 @@ class BookReviewAdapter constructor(private var bookReviews: List<BookReviewMode
 
         fun bind(bookReview: BookReviewModel, listener: BookReviewListener) {
             binding.bookTitle.text = bookReview.bookTitle
+            binding.author.text = bookReview.author
             binding.review.text = bookReview.review
             binding.ratingBar.rating=bookReview.rating
 //            binding.genre.text = bookReview.genre

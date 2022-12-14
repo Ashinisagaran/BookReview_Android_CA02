@@ -11,6 +11,8 @@
     <color name="colorPrimary">#cc8c8d</color>
     <color name="colorPrimaryDark">#000000</color>
     <color name="grey">#808080</color>
+    <color name="medium_grey">#a9a9a9</color>
+    <color name="dark_grey">#5d5d5d</color>
     <color name="dark_brown">#362419</color>
     <color name="colorAccent">#8a0f2b</color>
     <color name="old_book_page">#E0C9A6</color>

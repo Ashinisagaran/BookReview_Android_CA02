@@ -69,12 +69,12 @@ class BookReviewActivity : AppCompatActivity() {
         ratingBar = binding.ratingBar
         genre = binding.genre
         stageOfReading = binding.stageOfReading
-//        bookSave = binding.bookSave
 
         if (intent.hasExtra("bookReview_edit")) {
             edit = true
             bookReview = intent.extras?.getParcelable("bookReview_edit")!!
             binding.bookTitle.setText(bookReview.bookTitle)
+            binding.author.setText(bookReview.author)
             binding.review.setText(bookReview.review)
             binding.ratingBar.rating=bookReview.rating
             binding.genre.setText(bookReview.genre, false)
@@ -88,6 +88,7 @@ class BookReviewActivity : AppCompatActivity() {
 
         binding.bookSave.setOnClickListener() {
             bookReview.bookTitle = binding.bookTitle.text.toString()
+            bookReview.author = binding.author.text.toString()
             bookReview.review = binding.review.text.toString()
             bookReview.rating = binding.ratingBar.rating
             bookReview.genre = binding.genre.text.toString()
@@ -113,7 +114,7 @@ class BookReviewActivity : AppCompatActivity() {
             }
 
         binding.imageAdd.setOnClickListener {
-            showImagePicker(imageIntentLauncher)
+            showImagePicker(imageIntentLauncher,this)
         }
 
         binding.bookReviewLocation.setOnClickListener {
@@ -176,16 +177,22 @@ class BookReviewActivity : AppCompatActivity() {
                     RESULT_OK -> {
                         if (result.data != null) {
                             i("Got Result ${result.data!!.data}")
-                            bookReview.image = result.data!!.data!!
+
+                            val image = result.data!!.data!!
+                            contentResolver.takePersistableUriPermission(image,
+                                Intent.FLAG_GRANT_READ_URI_PERMISSION)
+                            bookReview.image = image
+
                             Picasso.get()
                                 .load(bookReview.image)
                                 .into(binding.bookImage)
-//                            binding.imageAdd.setImageIcon(R.string.change_book_image)
                         } // end of if
                     }
                     RESULT_CANCELED -> { } else -> { }
                 }
             }
     }
+
+
 
 }

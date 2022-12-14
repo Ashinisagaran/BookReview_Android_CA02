@@ -3,6 +3,7 @@
     <string name="button_addBook">Add Book</string>
     <string name="button_saveBook">Save Book</string>
     <string name="hint_bookTitle">Book Title</string>
+    <string name="hint_author">Author</string>
     <string name="hint_review">Review</string>
     <string name="hint_genre">Genre</string>
     <string name="rating">Rating</string>
@@ -21,6 +22,11 @@
     <string name="club_name">Book Review Club</string>
     <string name="genre">Genres</string>
     <string name="stageOfReading">Stage Of Reading</string>
+    <string name="enter_your_email_string">Enter your email</string>
+    <string name="password_string">password</string>
+    <string name="logo_image_descrp">BRC Logo</string>
+    <string name="not_a_mem_text">Not a Member? Sign Up</string>
+    <string name="log_in_string">LOG IN</string>
     <string-array name="select_genre">
         <item>Adventure</item>
         <item>Children</item>
