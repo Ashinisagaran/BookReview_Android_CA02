@@ -47,7 +47,7 @@
                     android:layout_width="128dp"
                     android:layout_height="116dp"
                     android:layout_marginStart="140dp"
-                    android:layout_marginTop="-130dp"
+                    android:layout_marginTop="-110dp"
                     android:src="@drawable/book_circle_logo" />
 
                 <TextView
@@ -61,6 +61,17 @@
                     android:textColor="@color/dark_brown" />
 
                 <EditText
+                    android:id="@+id/enter_your_name"
+                    android:layout_width="359dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
+                    android:padding="15dp"
+                    android:hint="@string/enter_your_name_string"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="20sp"/>
+
+                <EditText
                     android:id="@+id/enter_your_email"
                     android:layout_width="359dp"
                     android:layout_height="wrap_content"
@@ -71,6 +82,37 @@
                     android:textColor="@color/dark_grey"
                     android:textSize="20sp"/>
 
+            <LinearLayout
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="5sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <EditText
+                    android:id="@+id/password"
+                    android:layout_width="276dp"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/password_string"
+                    android:inputType="textPassword"
+                    android:padding="15dp"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="20sp" />
+
+                <ImageButton
+                        android:id="@+id/showHideBtn"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="59dp"
+                        android:layout_height="30dp"
+                        android:layout_margin="10dp"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:src="@drawable/password_open"
+                        android:stateListAnimator="@null" />
+
+            </LinearLayout>
+
                 <LinearLayout
                     android:orientation="horizontal"
                     android:gravity="center"
@@ -80,17 +122,17 @@
 
 
                     <EditText
-                        android:id="@+id/password"
+                        android:id="@+id/verify_password"
                         android:layout_width="276dp"
                         android:layout_height="wrap_content"
-                        android:hint="@string/password_string"
+                        android:hint="@string/verify_password_string"
                         android:inputType="textPassword"
                         android:padding="15dp"
                         android:textColor="@color/dark_grey"
                         android:textSize="20sp" />
 
                     <ImageButton
-                        android:id="@+id/showHideBtn3"
+                        android:id="@+id/showHideBtn2"
                         style="?android:attr/borderlessButtonStyle"
                         android:layout_width="59dp"
                         android:layout_height="30dp"
@@ -102,8 +144,9 @@
 
                 </LinearLayout>
 
+
                 <Button
-                    android:id="@+id/log_in"
+                    android:id="@+id/sign_up"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -111,7 +154,7 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="32dp"
                     android:backgroundTint="@color/dark_brown"
-                    android:text="@string/log_in_string"
+                    android:text="@string/sign_up_string"
                     android:textColor="@color/medium_grey"
                     android:textSize="18sp" />
 
@@ -123,7 +166,7 @@
                     android:layout_marginTop="10dp"
                     style="?android:attr/borderlessButtonStyle"
                     android:gravity="center"
-                    android:text="@string/btnLinkToRegisterScreen"
+                    android:text="@string/btnLinkToLoginScreen"
                     android:textAllCaps="false"
                     android:textColor="@color/link"
                     android:textSize="13sp" />

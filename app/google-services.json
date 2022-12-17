@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "265377705530",
+    "project_id": "book-review-android-ca02",
+    "storage_bucket": "book-review-android-ca02.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:265377705530:android:f9aa9ff2b9d7a705f8cf03",
+        "android_client_info": {
+          "package_name": "org.setu.bookReview"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "265377705530-2apc2v89ggonar90cgi956c85u60c7qe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC1-4mOwqhF-MynxZ8E0vqArtKLnmaNkGM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "265377705530-2apc2v89ggonar90cgi956c85u60c7qe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

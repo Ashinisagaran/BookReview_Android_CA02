@@ -22,11 +22,15 @@
     <string name="club_name">Book Review Club</string>
     <string name="genre">Genres</string>
     <string name="stageOfReading">Stage Of Reading</string>
+    <string name="enter_your_name_string">Enter your name</string>
     <string name="enter_your_email_string">Enter your email</string>
     <string name="password_string">password</string>
+    <string name="verify_password_string">Verify your password</string>
     <string name="logo_image_descrp">BRC Logo</string>
-    <string name="not_a_mem_text">Not a Member? Sign Up</string>
+    <string name="btnLinkToRegisterScreen">Not a Member? Sign Up</string>
+    <string name="btnLinkToLoginScreen">Already a Member? Log In</string>
     <string name="log_in_string">LOG IN</string>
+    <string name="sign_up_string">SIGN UP</string>
     <string-array name="select_genre">
         <item>Adventure</item>
         <item>Children</item>
@@ -49,5 +53,10 @@
     </string-array>
     <string name="button_location">Set Location</string>
     <string name="title_activity_map">MapActivity</string>
+    <string name="home">Home</string>
+    <string name="night">Night Mode</string>
+    <string name="setting">Setting</string>
+    <string name="search">Search</string>
+    <string name="delete">Delete</string>
 
 </resources>

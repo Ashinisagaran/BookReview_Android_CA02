@@ -5,6 +5,7 @@
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
+    <color name="link">#3f51b5</color>
     <color name="black">#FF000000</color>
     <color name="light_pink">#cc8c8d</color>
     <color name="pink_red">#461319</color>
@@ -13,6 +14,7 @@
     <color name="grey">#808080</color>
     <color name="medium_grey">#a9a9a9</color>
     <color name="dark_grey">#5d5d5d</color>
+    <color name="charcoal">#36454F</color>
     <color name="dark_brown">#362419</color>
     <color name="colorAccent">#8a0f2b</color>
     <color name="old_book_page">#E0C9A6</color>

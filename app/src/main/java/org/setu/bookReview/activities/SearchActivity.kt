@@ -2,13 +2,15 @@ package org.setu.bookReview.activities
 
 import android.app.Activity
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
+import android.widget.ImageView
+import android.widget.SearchView
+import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.app.AppCompatDelegate
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import org.setu.bookReview.R
@@ -17,13 +19,14 @@ import org.setu.bookReview.adapters.BookReviewListener
 import org.setu.bookReview.databinding.ActivityBookReviewListBinding
 import org.setu.bookReview.main.MainApp
 import org.setu.bookReview.models.BookReviewModel
-import timber.log.Timber
 
 
-class BookReviewListActivity : AppCompatActivity(), BookReviewListener, BottomNavigationView.OnNavigationItemSelectedListener {
+
+class SearchActivity : AppCompatActivity(), BookReviewListener, BottomNavigationView.OnNavigationItemSelectedListener {
 
     lateinit var app: MainApp
     private lateinit var binding: ActivityBookReviewListBinding
+    lateinit var adapter: BookReviewAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,33 +40,47 @@ class BookReviewListActivity : AppCompatActivity(), BookReviewListener, BottomNa
         val layoutManager = LinearLayoutManager(this)
         binding.recyclerView.layoutManager = layoutManager
         binding.recyclerView.adapter = BookReviewAdapter(app.bookReviews.findAll(),this)
+        adapter = binding.recyclerView.adapter as BookReviewAdapter
 
-        val btnToggleDark = binding.btnToggleDark
+        val search = findViewById<SearchView>(R.id.search)
+
+        val searchIcon = search.findViewById<ImageView>(androidx.appcompat.R.id.search_mag_icon)
+        searchIcon.setColorFilter(Color.WHITE)
+
+        val cancelIcon = search.findViewById<ImageView>(androidx.appcompat.R.id.search_close_btn)
+        cancelIcon.setColorFilter(Color.WHITE)
+
+        val textView = search.findViewById<TextView>(androidx.appcompat.R.id.search_src_text)
+        textView.setTextColor(Color.WHITE)
 
         val navigationView = binding.bottomNavigationView
         navigationView.setOnNavigationItemSelectedListener(this)
         navigationView.getMenu().clear()
         navigationView.inflateMenu(R.menu.nav_menu)
 
-       btnToggleDark.setOnClickListener() {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-            delegate.applyDayNight()
+        search.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
 
-            finish()
-        }
+            override fun onQueryTextChange(newText: String?): Boolean {
+               adapter.filter.filter(newText)
+                return false
+            }
 
+        })
 
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.menu_main, menu)
+        menuInflater.inflate(R.menu.search_menu, menu)
         return super.onCreateOptionsMenu(menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.item_add -> {
-                val launcherIntent = Intent(this, BookReviewActivity::class.java)
+            R.id.actionSearch -> {
+                val launcherIntent = Intent(this, SearchActivity::class.java)
                 getResult.launch(launcherIntent)
             }
         }
@@ -86,7 +103,6 @@ class BookReviewListActivity : AppCompatActivity(), BookReviewListener, BottomNa
         getClickResult.launch(launcherIntent)
     }
 
-
     private val getClickResult =
         registerForActivityResult(
             ActivityResultContracts.StartActivityForResult()
@@ -94,10 +110,6 @@ class BookReviewListActivity : AppCompatActivity(), BookReviewListener, BottomNa
             if (it.resultCode == Activity.RESULT_OK) {
                 (binding.recyclerView.adapter)?.
                 notifyItemRangeChanged(0,app.bookReviews.findAll().size)
-            }
-           else if (it.resultCode == Activity.RESULT_OK+1) { //to delete the book review
-                (binding.recyclerView.adapter)?.
-                notifyItemRangeChanged(0,app.bookReviews.findAll().size+1)
             }
         }
 

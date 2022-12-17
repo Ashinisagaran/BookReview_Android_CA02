@@ -7,24 +7,32 @@ import android.os.Bundle
 import android.os.Handler
 import android.widget.ProgressBar
 import org.setu.bookReview.R
-import timber.log.Timber
+import java.util.*
+import java.util.concurrent.TimeUnit
+import kotlin.time.DurationUnit
 
 
 class SplashActivity : Activity() {
-    var handler: Handler? = null
-    private var mProgress: ProgressBar? = null
+     lateinit var handler: Handler
+    private lateinit var mProgress: ProgressBar
+
+    private lateinit var timer: Timer
+    private lateinit var progressBar: ProgressBar
+    private var i = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.splashfile)
 
-//        mProgress = (ProgressBar) findViewById(R.id.splash_screen_progress_bar)
+        progressBar = findViewById(R.id.splash_screen_progress_bar)
+        progressBar.progress = 0;
 
-        handler = Handler()
+        handler=Handler()
         handler!!.postDelayed({
-            val intent = Intent(this@SplashActivity, BookReviewActivity::class.java)
-            startActivity(intent)
-            finish()
+        val intent = Intent(this@SplashActivity, RegistrationActivity::class.java)
+        startActivity(intent)
+        finish()
         }, 3000)
+
     }
 }

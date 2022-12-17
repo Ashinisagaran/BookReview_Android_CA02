@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:background="@color/old_book_page">
+    android:background="@drawable/old_book_page">
 
     <ImageView
         android:id="@+id/logo_id"
@@ -21,16 +21,18 @@
         android:layout_centerHorizontal="true"
         android:text="@string/club_name"
         android:textSize="30sp"
-        android:textColor="@color/dark_brown"/>
+        android:textColor="@color/colorAccent"/>
 
     <ProgressBar
         android:id="@+id/splash_screen_progress_bar"
         style="@android:style/Widget.DeviceDefault.ProgressBar.Horizontal"
+        android:indeterminate="true"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:layout_marginRight="5dp"
         android:layout_marginTop="5dp"
-        android:layout_below="@+id/text_id"/>
+        android:layout_below="@+id/text_id"
+        android:visibility="visible"/>
 
 </RelativeLayout>

@@ -14,6 +14,8 @@ import android.widget.TextView
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.snackbar.Snackbar
 import com.squareup.picasso.Picasso
 import org.setu.bookReview.R
@@ -47,6 +49,8 @@ class BookReviewActivity : AppCompatActivity() {
         setContentView(binding.root)
         binding.toolbarAdd.title = title
         setSupportActionBar(binding.toolbarAdd)
+
+        binding.btnDelete.isVisible = false
 
         app = application as MainApp
 
@@ -84,6 +88,7 @@ class BookReviewActivity : AppCompatActivity() {
             Picasso.get()
                 .load(bookReview.image)
                 .into(binding.bookImage)
+            binding.btnDelete.isVisible = true
         }
 
         binding.bookSave.setOnClickListener() {
@@ -105,6 +110,13 @@ class BookReviewActivity : AppCompatActivity() {
             }
             i("add Button Pressed: $bookReview")
             setResult(RESULT_OK)
+            finish()
+        }
+
+        binding.btnDelete.setOnClickListener() {
+            app.bookReviews.delete(bookReview)
+            i("Book deleted: $bookReview")
+            setResult(RESULT_OK+1)
             finish()
         }
 
@@ -132,6 +144,8 @@ class BookReviewActivity : AppCompatActivity() {
         registerImagePickerCallback()
 
         registerMapCallback()
+
+
 
     }
 

@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_MEDIA_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:name="org.setu.bookReview.main.MainApp"
@@ -38,7 +39,28 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+        <activity android:name=".activities.RegistrationActivity"
+            android:exported="true">
+        </activity>
+        <activity android:name=".activities.LoginActivity"
+            android:exported="true">
+        </activity>
         <activity android:name=".activities.BookReviewActivity">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity android:name=".activities.BookReviewListActivity">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity android:name=".activities.SearchActivity">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity android:name=".activities.PlacesActivity">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
