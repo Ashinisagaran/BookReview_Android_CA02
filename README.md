@@ -6,4 +6,4 @@ the latest update is the branch 9.Search_Night_Mode
 
 # Splash Screen
 
-![](/appImages/splash_screen.png)
+![Splash Screen](/appImages/splash_screen.png)
