@@ -32,14 +32,14 @@
 
     <ImageButton
         android:id="@+id/btnToggleDark"
-        android:layout_width="wrap_content"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="46dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
         android:layout_marginLeft="300dp"
-        android:src="@drawable/ic_baseline_mode_night_24"
-        android:stateListAnimator="@null"
+        android:layout_marginTop="5dp"
         android:contentDescription="@string/night"
-        style="?android:attr/borderlessButtonStyle"/>
+        android:src="@drawable/ic_baseline_mode_night_24"
+        android:stateListAnimator="@null" />
 
     <RelativeLayout
         android:id="@+id/relativeLayout2"

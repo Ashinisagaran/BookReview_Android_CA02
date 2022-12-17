@@ -49,7 +49,6 @@ class BookReviewListActivity : AppCompatActivity(), BookReviewListener, BottomNa
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
             delegate.applyDayNight()
 
-            finish()
         }
 
 
